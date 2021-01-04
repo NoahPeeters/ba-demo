@@ -5,7 +5,7 @@ package de.noahpeeters.gameoflife.classic;
  *
  */
 public class App {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         BoardController boardController = new BoardController();
 
         boardController.print();
