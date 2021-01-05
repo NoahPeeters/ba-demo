@@ -1,11 +1,8 @@
 package de.noahpeeters.gameoflife.adt.model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class CartesianCellPosition implements CellPosition {
     private final int x;
@@ -15,8 +12,6 @@ public class CartesianCellPosition implements CellPosition {
         this.x = x;
         this.y = y;
     }
-
-    public static CellPosition zero = new CartesianCellPosition(0, 0);
 
     @Override
     public Set<CellPosition> getNeighbours() {

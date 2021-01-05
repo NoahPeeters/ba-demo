@@ -1,5 +1,6 @@
 package de.noahpeeters.gameoflife.classic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,10 +15,22 @@ public class Board {
         return aliveCells;
     }
 
+    public Set<CellPosition> getNeighboursOfPosition(CellPosition position) {
+        Set<CellPosition> result = new HashSet<>();
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                if (dx != 0 || dy != 0) {
+                    result.add(new CellPosition(position.getX() + dx, position.getY() + dy));
+                }
+            }
+        }
+        return result;
+    }
+
     public Set<CellPosition> getActivePositions() {
         Set<CellPosition> neighbours = aliveCells
                 .stream()
-                .flatMap(position -> position.getNeighbours().stream())
+                .flatMap(position -> getNeighboursOfPosition(position).stream())
                 .collect(Collectors.toSet());
         neighbours.addAll(aliveCells);
         return neighbours;

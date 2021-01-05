@@ -39,8 +39,4 @@ public class Board implements InfiniteCellGrid {
         neighbours.addAll(aliveCells);
         return neighbours;
     }
-
-    public Set<CellPosition> getAliveCells() {
-        return new HashSet<>(aliveCells);
-    }
 }

@@ -1,10 +1,6 @@
 package de.noahpeeters.gameoflife.classic.model;
 
-import de.noahpeeters.gameoflife.adt.model.CartesianCellPosition;
-
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 public class CellPosition {
     private final int x;
@@ -21,18 +17,6 @@ public class CellPosition {
 
     public int getY() {
         return y;
-    }
-
-    public Set<CellPosition> getNeighbours() {
-        Set<CellPosition> result = new HashSet<>();
-        for (int dx = -1; dx <= 1; dx++) {
-            for (int dy = -1; dy <= 1; dy++) {
-                if (dx != 0 || dy != 0) {
-                    result.add(new CellPosition(this.x + dx, this.y + dy));
-                }
-            }
-        }
-        return result;
     }
 
     @Override

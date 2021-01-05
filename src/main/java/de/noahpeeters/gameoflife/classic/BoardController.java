@@ -21,7 +21,7 @@ public class BoardController {
     public void step() {
         Board newBoard = new Board(new HashSet<>(board.getAliveCells()));
         for (CellPosition position: board.getActivePositions()) {
-            long aliveNeighbourCount = position.getNeighbours().stream().filter(board.getAliveCells()::contains).count();
+            long aliveNeighbourCount = board.getNeighboursOfPosition(position).stream().filter(board.getAliveCells()::contains).count();
             boolean isAlive = board.getAliveCells().contains(position);
 
             if (isAlive && (aliveNeighbourCount < 2 || aliveNeighbourCount > 3)) {
@@ -31,8 +31,6 @@ public class BoardController {
             }
         }
         this.board = newBoard;
-
-        System.out.println(board.getAliveCells().size());
     }
 
     public void print() {
@@ -43,5 +41,6 @@ public class BoardController {
             }
             System.out.println();
         }
+        System.out.println("----------");
     }
 }

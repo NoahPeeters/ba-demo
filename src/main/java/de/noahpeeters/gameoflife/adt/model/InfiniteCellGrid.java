@@ -9,8 +9,6 @@ public interface InfiniteCellGrid {
 
     void markAsDead(CellPosition position);
 
-    Set<CellPosition> getAliveCells();
-
     Set<CellPosition> getActivePositions();
 
     InfiniteCellGrid createCopy();

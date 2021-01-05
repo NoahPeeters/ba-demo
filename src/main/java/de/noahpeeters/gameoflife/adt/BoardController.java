@@ -5,8 +5,6 @@ import de.noahpeeters.gameoflife.adt.model.CartesianCellPosition;
 import de.noahpeeters.gameoflife.adt.model.CellPosition;
 import de.noahpeeters.gameoflife.adt.model.InfiniteCellGrid;
 
-import java.util.stream.Collectors;
-
 public class BoardController {
     private InfiniteCellGrid board;
 
@@ -33,8 +31,6 @@ public class BoardController {
             }
         }
         this.board = newBoard;
-
-        System.out.println(board.getAliveCells().size());
     }
 
     public void print() {
@@ -45,5 +41,6 @@ public class BoardController {
             }
             System.out.println();
         }
+        System.out.println("----------");
     }
 }
